@@ -1,0 +1,46 @@
+#rootContainer {
+  background-color: beige;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+}
+
+#leftContainer {
+  flex-grow: 3;
+  background-color: white;
+}
+
+#rightContainer {
+  background-color: rgb(229, 221, 214);
+  flex-grow: 7;
+}
+
+.headerContainer {
+  background-color: rgb(237, 237, 237);
+  height: 50px;
+}
+
+.userMessage {
+  background-color: greenyellow;
+}
+
+.botMessage {
+  background-color: white;
+}
+
+#rightInputAreaContainer {
+  background-color: rgb(237, 237, 237);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+}
+
+#rightInputContainer {
+  background-color: white;
+}
+
+#rightInput {
+  font-size: 20px;
+  width: 100%;
+}

@@ -1,13 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {
+  BrowserRouter
+} from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './store';
 import './index.css';
-import App from './App';
+import AppContainer from './containers/AppContainer/AppContainer';
 import * as serviceWorker from './serviceWorker';
 
+require('dotenv').config();
+
+// const io = require('socket.io-client');
+// const socket = io(process.env.REACT_APP_BACKEND_ADDRESS);
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <React.StrictMode>
+        <AppContainer />
+        {/* <AppContainer socket={socket}/> */}
+      </React.StrictMode>
+    </BrowserRouter>
+  </Provider>,
   document.getElementById('root')
 );
 
