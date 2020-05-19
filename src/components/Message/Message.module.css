@@ -2,9 +2,12 @@
 }
 
 .messageContainer {
-  margin: 1rem;
+  margin: 1rem 1rem -0.5rem 1rem;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
+  box-sizing: border-box;
+  /* background-color: khaki; */
 }
 
 .userMessage {
@@ -23,7 +26,7 @@
 }
 
 .choicesContainer {
-  margin: 1rem;
+  margin: 1rem 1rem -1rem 1rem;
   display: flex;
   /* flex-direction: column; */
   flex-wrap: wrap;

@@ -7,8 +7,18 @@ const chat = (state = [
   {
     author: 'bot',
     type: 'text',
-    payload: 'Welcome! I am Younggyo, a software engineer. Ask me anything.',
-    choices: ['What\'s your name?', 'Resume']
+    payload: 'Welcome to my website. My name is Younggyo Lee.'
+  },
+  {
+    author: 'bot',
+    type: 'text',
+    payload: 'Enjoy chatting with my bot.',
+    choices: [
+      'How do I pronounce your name?',
+      'Resume',
+      'Linkedin',
+      'Github'
+    ]
   }
 ], action) => {
   switch (action.type) {
