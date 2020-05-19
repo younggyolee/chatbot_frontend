@@ -46,24 +46,23 @@ export default function App({
                 YOUNGGYO LEE
               </span>
               <hr/>
-              <h2>A look into software engineering</h2>
+              <h2>Software Engineering</h2>
               <hr/>
               <p>
-                &nbsp;&nbsp;SEOUL, May. {new Date().getYear() - 100} - I am a freelancer software engineer, creating web and mobile services.
+                &nbsp;SEOUL, May. {new Date().getDate()} - I am a freelancer software engineer, creating web and mobile services.
               </p>
               <p>
-                &nbsp;&nbsp;I have always been a computer geek from my early childhood, and finally settled into software engineering after experiencing various roles in the IT industry.
+                &nbsp;I have always been a computer geek from my early childhood, and finally settled into software engineering after experiencing various roles in the IT industry.
               </p>
               <p>
-                &nbsp;&nbsp;Currently I am doing several freelancing projects on web & mobile development and data engineering for digital marketing.
+                &nbsp;Currently I am doing several freelancing projects on web & mobile development and data engineering for digital marketing.
               </p>
               <p
                 className={styles.lastParagraph}
                 // onClick={() => setShowMore(true)}
                 onClick={()=>setShowChatBot(true)}
               >
-                &nbsp;&nbsp;For those who are interested, please press ` to open a chat bot to get to know more about me.
-                If you are on mobile, please click on this paragraph and scroll down.
+                &nbsp;&nbsp;For those who are interested, please click on this paragraph to open a chat bot to get to know more about me.
               </p>
             </section>
           </div>
