@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from 'react';
+import Linkify from 'react-linkify';
 import styles from './App.module.css';
 import Input from '../Input/Input';
 
-export default function App({ messages }) {
+export default function App({ messages, onMessageSend }) {
   const [inputText, setInputText] = useState('');
 
-  useEffect(() => {
-    console.log(inputText);
-  }, [inputText]);
-
-  function handleInputKeyPress(event) {
+  async function handleInputKeyPress(event) {
     if (event.charCode === 13) {
-      console.log('enter pressed');
+      await onMessageSend(event.target.value);
     }
   }
+
+  useEffect(() => {
+    console.log('messages', messages);
+  }, [messages]);
 
   return (
     <div id={styles.rootContainer}>
@@ -31,10 +32,26 @@ export default function App({ messages }) {
         </div>
         <div id={styles.rightContentContainer}>
           {messages.map((message, index) =>
-            <div key={index} className={styles[`${message.author}Message`]}>
-              <div>{message.payload}</div>
-              <div>{message.time}</div>
-            </div>
+            <>
+              <Linkify>
+                <div key={index} className={styles[`${message.author}Message`]}>
+                  <div>{message.payload}</div>
+                </div>
+                <div>
+                  {
+                    message.choices &&
+                    message.choices.map(choice =>
+                      <span
+                        className={styles.choices}
+                        onClick={() => onMessageSend(choice)}
+                      >
+                        {choice}
+                      </span>
+                    )
+                  }
+                </div>
+              </Linkify>
+            </>
           )}
         </div>
         <div id={styles.rightInputAreaContainer}>
