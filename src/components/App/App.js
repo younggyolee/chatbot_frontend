@@ -55,7 +55,7 @@ export default function App({
                 &nbsp;I have always been a computer geek from my early childhood, and finally settled into software engineering after experiencing various roles in the IT industry.
               </p>
               <p>
-                &nbsp;Currently I am doing several freelancing projects on web & mobile development and data engineering for digital marketing.
+                &nbsp;Currently I am doing several freelancing projects on web & mobile development. I am also engaged in data engineering & automation projects in the digital marketing area.
               </p>
               <p
                 className={styles.lastParagraph}
