@@ -9,3 +9,5 @@ This repo is for my homepage's frontend.
 - https://www.linkedin.com/in/younggyolee
 - https://facebook.com/younggyolee.fb
 - https://instagram.com/younggyo.lee
+
+Thanks!
