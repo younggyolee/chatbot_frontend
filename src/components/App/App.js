@@ -8,6 +8,33 @@ export default function App({
   isBotTyping
 }) {
   const [showMore, setShowMore] = useState(false);
+  const [showChatBot, setShowChatBot] = useState(false);
+  const [chatBotEnd, setChatBotEnd] = useState({});
+
+  function scrollToBottom() {
+    if (chatBotEnd.scrollIntoView) {
+      chatBotEnd.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  useEffect(() => {
+    if (showChatBot && chatBotEnd) {
+      scrollToBottom();
+    }
+  }, [showChatBot, chatBotEnd]);
+
+  useEffect(() => {
+    function handleKeyDown(event) {
+      if (event.keyCode === 192) {
+        setShowChatBot(!showChatBot);
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+    return (function cleanup() {
+      document.removeEventListener("keydown", handleKeyDown);
+    });
+  }, [showChatBot]);
 
   return (
     <div className={styles.rootContainer}>
@@ -79,15 +106,23 @@ export default function App({
                 </div>
               </div>
             </div>
-            <div className={styles.chatBotContainer}>
-              {/* <ChatBot
-                messages={messages}
-                onMessageSend={onMessageSend}
-                isBotTyping={isBotTyping}
-              /> */}
-            </div>
           </>
         }
+        <div 
+          style={{ float:"left", clear: "both" }}
+          ref={(el) => { setChatBotEnd(el) }}
+        />
+        {
+          showChatBot &&
+          <div className={styles.chatBotContainer}>
+            <ChatBot
+              messages={messages}
+              onMessageSend={onMessageSend}
+              isBotTyping={isBotTyping}
+            />
+          </div>
+        }
+        
       </div>
     </div>
   );

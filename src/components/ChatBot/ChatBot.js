@@ -59,8 +59,7 @@ export default function ChatBot({
           <div 
             style={{ float:"left", clear: "both" }}
             ref={(el) => { setMessagesEnd(el) }}
-          >
-          </div>
+          />
         </div>
         <div id={styles.rightInputContainer}>
           <Input
