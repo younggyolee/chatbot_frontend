@@ -72,7 +72,7 @@ export default function App({
             href='https://github.com/younggyolee/chatbot_frontend'
             target='_blank'
           >
-            Designed & Built by Younggyo Lee
+            Copyright © Younggyo Lee {new Date().getFullYear()}
           </a>
         </div>
       </div>
