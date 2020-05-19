@@ -29,7 +29,6 @@ const chat = (state = [
       ];
     case REMOVE_CHOICES:
       const newState = JSON.parse(JSON.stringify(state));
-      console.log('newState', newState);
       if (newState.length) {
         newState[newState.length - 1].choices = [];
       }

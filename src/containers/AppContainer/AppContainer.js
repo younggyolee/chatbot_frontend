@@ -32,10 +32,6 @@ export const AppContainer = ({ chat, updateChat, removeChoices }) => {
     }, interval);
   }
 
-  useEffect(() => {
-    console.log('chat', chat);
-  }, [chat]);
-
   return (
     <>
       <App
