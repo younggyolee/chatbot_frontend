@@ -1,1 +1,2 @@
 export const UPDATE_CHAT = 'UPDATE_CHAT';
+export const REMOVE_CHOICES = 'REMOVE_CHOICES';

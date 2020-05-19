@@ -1,0 +1,41 @@
+#rootContainer {
+}
+
+.messageContainer {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.userMessage {
+  background-color: rgb(58,243,123);
+  color: white;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  align-self: flex-end;
+}
+
+.botMessage {
+  background-color: lightgrey;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  align-self: flex-start;
+}
+
+.choicesContainer {
+  margin: 1rem;
+  display: flex;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  padding-left: 30%;
+}
+
+.choices {
+  margin: 0.1rem;
+  border: 1px solid rgb(58,243,123);
+  color: rgb(58,243,123);
+  padding: 1rem;
+  border-radius: 0.8rem;
+  cursor: pointer;
+}

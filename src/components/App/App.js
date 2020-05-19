@@ -1,65 +1,79 @@
 import React, { useState, useEffect } from 'react';
-import Linkify from 'react-linkify';
 import styles from './App.module.css';
 import Input from '../Input/Input';
+import Message from '../Message/Message';
+import PulseLoader from "react-spinners/PulseLoader";
 
-export default function App({ messages, onMessageSend }) {
-  const [inputText, setInputText] = useState('');
+export default function App({
+  messages,
+  onMessageSend,
+  isBotTyping
+}) {
+  const [messagesEnd, setMessagesEnd] = useState({});
 
-  async function handleInputKeyPress(event) {
-    if (event.charCode === 13) {
-      await onMessageSend(event.target.value);
+  function scrollToBottom() {
+    if (messagesEnd.scrollIntoView) {
+      messagesEnd.scrollIntoView({ behavior: "smooth" });
     }
   }
 
   useEffect(() => {
-    console.log('messages', messages);
+    scrollToBottom();
   }, [messages]);
 
   return (
     <div id={styles.rootContainer}>
-      <div id={styles.leftContainer}>
-        <div id={styles.leftHeaderContainer} className={styles.headerContainer}>
-          LEFT HEADER
-        </div>
-        <div id={styles.leftContentContainer}>
-          LEFT CONTENT
-        </div>
-      </div>
       <div id={styles.rightContainer}>
-        <div id={styles.rightHeaderContainer} className={styles.headerContainer}>
-          RIGHT HEADER
+        <div 
+          className={styles.headerContainer}
+        >
+          <img 
+            src={`${process.env.REACT_APP_PUBLIC_URL}/younggyo.PNG`}
+            className={styles.profileImage}
+          />
+          <div className ={styles.headerNameTextContainer}>
+            <span>
+              Younggyo Lee
+            </span>
+          </div>
         </div>
         <div id={styles.rightContentContainer}>
           {messages.map((message, index) =>
-            <>
-              <Linkify>
-                <div key={index} className={styles[`${message.author}Message`]}>
-                  <div>{message.payload}</div>
-                </div>
-                <div>
-                  {
-                    message.choices &&
-                    message.choices.map(choice =>
-                      <span
-                        className={styles.choices}
-                        onClick={() => onMessageSend(choice)}
-                      >
-                        {choice}
-                      </span>
-                    )
-                  }
-                </div>
-              </Linkify>
-            </>
+            <Message
+              key={index}
+              message={message}
+              onMessageSend={onMessageSend}
+            />
           )}
+          { 
+            isBotTyping && 
+            <div id={styles.PulseLoaderContainer}>
+              <PulseLoader
+                size={'1rem'}
+                margin={'0.3rem'}
+                color={'lightgrey'}
+                loading={isBotTyping}
+              />
+            </div>
+          }
+          <div 
+            style={{ float:"left", clear: "both" }}
+            ref={(el) => { setMessagesEnd(el) }}
+          >
+          </div>
         </div>
-        <div id={styles.rightInputAreaContainer}>
+        <div id={styles.rightInputContainer}>
           <Input
-            text={inputText}
-            onChange={e => setInputText(e.target.value)}
-            onKeyPress={handleInputKeyPress}
+            onMessageSend={onMessageSend}
           />
+        </div>
+        <div className={styles.footerContainer}>
+          <a
+            href='https://github.com/younggyolee/chatbot_frontend'
+            target='_blank'
+          >
+            Designed & Built by Younggyo Lee
+          </a>
         </div>
       </div>
     </div>

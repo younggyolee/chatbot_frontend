@@ -1,0 +1,25 @@
+#rootContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding: 3%;
+  box-sizing: border-box;
+}
+
+#rightInput {
+  box-sizing: border-box;
+  border-width: 0px;
+  border-radius: 0.7rem;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  padding: 2%;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+#sendIconContainer {
+  cursor: pointer;
+  margin-top: 0.3rem;
+  margin-left: 0.5rem;
+}

@@ -1,13 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-// import { VIEW_TYPES } from '../../constants/stateTypes';
 import { withRouter } from 'react-router-dom';
-import { updateChatAction } from '../../actions';
+import { updateChatAction, removeChoicesAction } from '../../actions';
 import axios from 'axios';
 import App from '../../components/App/App';
 
-export const AppContainer = ({ chat, updateChat }) => {
+export const AppContainer = ({ chat, updateChat, removeChoices }) => {
+  const [isBotTyping, setIsBotTyping] = useState(false);
+
   async function handleMessageSend(message) {
+    removeChoices();
     updateChat({
       author: 'user',
       type: 'text',
@@ -15,12 +17,19 @@ export const AppContainer = ({ chat, updateChat }) => {
       time: new Date().toISOString()
     });
 
+    setIsBotTyping(true);
+
     const { data } = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/message`, {
       message
     });
 
-    // console.log(data);
-    updateChat(data);
+    let interval = data.payload.split(' ').length * 300;
+    interval = (interval > 2000) ? 1500 : interval;
+
+    setTimeout(() => {
+      setIsBotTyping(false);
+      updateChat(data);
+    }, interval);
   }
 
   useEffect(() => {
@@ -32,6 +41,7 @@ export const AppContainer = ({ chat, updateChat }) => {
       <App
         messages={chat}
         onMessageSend={handleMessageSend} 
+        isBotTyping={isBotTyping}
       />
     </>
   );
@@ -45,6 +55,9 @@ const mapDispatchToProps = dispatch => {
   return {
     updateChat(message) {
       dispatch(updateChatAction(message));
+    },
+    removeChoices(message) {
+      dispatch(removeChoicesAction(message));
     }
   };
 };
