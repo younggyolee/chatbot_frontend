@@ -6,7 +6,7 @@ export default function message({ message, onMessageSend }) {
   return (
     <div id={styles.rootContainer}>
       <Linkify>
-        <div className={styles[`messageContainer`]}>
+        <div className={styles['messageContainer']}>
           <span className={styles[`${message.author}Message`]}>
             {message.payload}
           </span>
