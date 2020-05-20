@@ -1,17 +1,9 @@
 #rootContainer {
-  /* height: 100vh; */
-  /* width: 100vw; */
   height: 100%;
   width: 100%;
-  /* position: relative; */
   background-color: white;
   opacity: 0.9;
   display: flex;
-}
-
-#leftContainer {
-  flex-grow: 3;
-  background-color: white;
 }
 
 #rightContainer {
@@ -24,7 +16,6 @@
 
 .headerContainer {
   background-color: rgb(237, 237, 237);
-  /* height: 5vh; */
   height: 5%;
   display: flex;
   flex-direction: row;
@@ -46,9 +37,9 @@
 }
 
 #rightContentContainer {
-  /* height: 90vh; */
   height: 90%;
   overflow-y: scroll;
+  padding-bottom: 5%;
 }
 
 #PulseLoaderContainer {

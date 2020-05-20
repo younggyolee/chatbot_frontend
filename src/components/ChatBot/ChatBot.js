@@ -66,14 +66,6 @@ export default function ChatBot({
             onMessageSend={onMessageSend}
           />
         </div>
-        {/* <div className={styles.footerContainer}>
-          <a
-            href='https://github.com/younggyolee/chatbot_frontend'
-            target='_blank'
-          >
-            Built by Younggyo Lee {new Date().getFullYear()}
-          </a>
-        </div> */}
       </div>
     </div>
   );

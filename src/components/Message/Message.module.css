@@ -7,7 +7,6 @@
   flex-direction: column;
   justify-content: space-evenly;
   box-sizing: border-box;
-  /* background-color: khaki; */
 }
 
 .userMessage {
@@ -16,6 +15,8 @@
   padding: 1rem;
   border-radius: 0.8rem;
   align-self: flex-end;
+  max-width: 70%;
+  word-wrap: break-word;
 }
 
 .botMessage {
@@ -23,15 +24,16 @@
   padding: 1rem;
   border-radius: 0.8rem;
   align-self: flex-start;
+  max-width: 70%;
+  word-wrap: break-word;
 }
 
 .choicesContainer {
   margin: 1rem 1rem -1rem 1rem;
   display: flex;
-  /* flex-direction: column; */
   flex-wrap: wrap;
   justify-content: flex-end;
-  padding-left: 30%;
+  padding-left: 40%;
 }
 
 .choices {

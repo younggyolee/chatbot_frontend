@@ -26,7 +26,7 @@ export default function App({
   useEffect(() => {
     function handleKeyDown(event) {
       if (event.keyCode === 192) {
-        setShowMore(true);
+        // setShowMore(true);
         setShowChatBot(!showChatBot);
       }
     }

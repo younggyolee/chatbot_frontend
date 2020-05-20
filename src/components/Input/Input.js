@@ -5,7 +5,14 @@ import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 
 export default function Input({ onMessageSend }) {
   const [text, setText] = useState('');
-  // const [inputEl, setInputEl] = useState({});
+  const [inputEl, setInputEl] = useState({});
+
+  useEffect(() => {
+    console.log(inputEl);
+    if (inputEl.focus) {
+      // inputEl.focus();
+    }
+  }, [inputEl])
 
   async function handleKeyPress(event) {
     if (!text.length) return;
@@ -30,7 +37,7 @@ export default function Input({ onMessageSend }) {
         onKeyPress={handleKeyPress}
         placeholder='Type a message'
         // autoFocus
-        // ref={(el) => { setInputEl(el) }} 
+        ref={(el) => { setInputEl(el) }}
       />
       <div id={styles.sendIconContainer}>
         <FontAwesomeIcon
