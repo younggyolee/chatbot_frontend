@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Input.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 
 export default function Input({ onMessageSend }) {
   const [text, setText] = useState('');
+  // const [inputEl, setInputEl] = useState({});
 
   async function handleKeyPress(event) {
     if (!text.length) return;
@@ -28,7 +29,8 @@ export default function Input({ onMessageSend }) {
         onChange={e => setText(e.target.value)}
         onKeyPress={handleKeyPress}
         placeholder='Type a message'
-        autoFocus
+        // autoFocus
+        // ref={(el) => { setInputEl(el) }} 
       />
       <div id={styles.sendIconContainer}>
         <FontAwesomeIcon

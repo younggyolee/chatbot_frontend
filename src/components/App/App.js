@@ -26,6 +26,7 @@ export default function App({
   useEffect(() => {
     function handleKeyDown(event) {
       if (event.keyCode === 192) {
+        setShowMore(true);
         setShowChatBot(!showChatBot);
       }
     }
@@ -59,15 +60,15 @@ export default function App({
               </p>
               <p
                 className={styles.lastParagraph}
-                // onClick={() => setShowMore(true)}
-                onClick={()=>setShowChatBot(true)}
+                onClick={() => setShowMore(true)}
+                // onClick={()=>setShowChatBot(true)}
               >
-                &nbsp;&nbsp;For those who are interested, please click on this paragraph to open a chat bot to get to know more about me.
+                &nbsp;For those who are interested, please press ` key to open a chat bot to get to know more about me. If you are on mobile, please click on this paragraph and scroll down.
               </p>
             </section>
           </div>
         </div>
-        {/* {showMore &&  */}
+        {showMore && 
           <>
             <div className={styles.resumeContainer}>
               <h1>RESUME</h1>
@@ -107,11 +108,7 @@ export default function App({
               </div>
             </div>
           </>
-        {/* } */}
-        <div 
-          style={{ float:"left", clear: "both" }}
-          ref={(el) => { setChatBotEnd(el) }}
-        />
+        }
         {
           showChatBot &&
           <div className={styles.chatBotContainer}>
@@ -122,7 +119,10 @@ export default function App({
             />
           </div>
         }
-        
+        <div
+          style={{ float:"left", clear: "both" }}
+          ref={(el) => { setChatBotEnd(el) }}
+        />
       </div>
     </div>
   );
