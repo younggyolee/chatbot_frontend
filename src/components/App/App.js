@@ -93,7 +93,7 @@ export default function App({
                 <div className={styles.worksTextContainer}>
                   <span className={styles.worksTextTitle}>Farfetch</span>
                   <br/>
-                  <span className={styles.worksText}>Performance Marketing - Paid Search Team</span>
+                  <span className={styles.worksText}>Junior Performance Marketing Exec. - Paid Search Marketing Team</span>
                 </div>
               </div>
               <div className={styles.playdogsoftContainer}>
