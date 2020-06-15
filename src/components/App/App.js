@@ -7,13 +7,13 @@ export default function App({
   onMessageSend,
   isBotTyping
 }) {
-  const [showMore, setShowMore] = useState(false);
+  // const [showMore, setShowMore] = useState(false);
   const [showChatBot, setShowChatBot] = useState(false);
   const [chatBotEnd, setChatBotEnd] = useState({});
 
   function scrollToBottom() {
     if (chatBotEnd.scrollIntoView) {
-      chatBotEnd.scrollIntoView({ behavior: 'smooth' });
+      chatBotEnd.scrollIntoView({ behavior: 'smooth', block: 'end' });
     }
   }
 
@@ -21,7 +21,7 @@ export default function App({
     if (showChatBot && chatBotEnd) {
       scrollToBottom();
     }
-  }, [showChatBot, chatBotEnd]);
+  }, [chatBotEnd]);
 
   useEffect(() => {
     function handleKeyDown(event) {
@@ -42,7 +42,7 @@ export default function App({
       <div className={styles.innerContainer}>
         <div className={styles.mainContainer}>
           <div className={styles.mainContentContainer}>
-            <section class='text'>
+            <section className='text'>
               <span className={styles.title}>
                 YOUNGGYO LEE
               </span>
@@ -60,15 +60,16 @@ export default function App({
               </p>
               <p
                 className={styles.lastParagraph}
-                onClick={() => setShowMore(true)}
-                // onClick={()=>setShowChatBot(true)}
+                // onClick={() => setShowMore(true)}
+                onClick={()=>setShowChatBot(true)}
               >
-                &nbsp;For those who are interested, please press ` key to open a chat bot to get to know more about me. If you are on mobile, please click on this paragraph and scroll down.
+                &nbsp;For those who are interested, please press or click on this paragraph to open a chat bot, and get to know more about me.
               </p>
             </section>
           </div>
         </div>
-        {showMore && 
+        {showChatBot &&
+        // {showMore &&
           <>
             <div className={styles.resumeContainer}>
               <h1>RESUME</h1>
@@ -107,22 +108,19 @@ export default function App({
                 </div>
               </div>
             </div>
+            <div className={styles.chatBotContainer}>
+              <ChatBot
+                messages={messages}
+                onMessageSend={onMessageSend}
+                isBotTyping={isBotTyping}
+              />
+              <div
+                style={{ float:"left", clear: "both" }}
+                ref={(el) => { setChatBotEnd(el) }}
+              />
+            </div>
           </>
         }
-        {
-          showChatBot &&
-          <div className={styles.chatBotContainer}>
-            <ChatBot
-              messages={messages}
-              onMessageSend={onMessageSend}
-              isBotTyping={isBotTyping}
-            />
-          </div>
-        }
-        <div
-          style={{ float:"left", clear: "both" }}
-          ref={(el) => { setChatBotEnd(el) }}
-        />
       </div>
     </div>
   );
