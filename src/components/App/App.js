@@ -21,7 +21,7 @@ export default function App({
     if (showChatBot && chatBotEnd) {
       scrollToBottom();
     }
-  }, [chatBotEnd]);
+  }, [showChatBot, chatBotEnd, scrollToBottom]);
 
   useEffect(() => {
     function handleKeyDown(event) {
@@ -83,6 +83,7 @@ export default function App({
                 <img
                   src={`${process.env.REACT_APP_PUBLIC_URL}/resume.PNG`}
                   className={styles.largeImage}
+                  alt='a logo for resume'
                 />
               </a>
             </div>
@@ -95,6 +96,7 @@ export default function App({
                 <img
                   src={`${process.env.REACT_APP_PUBLIC_URL}/tapjoy.PNG`}
                   className={styles.tapjoyImage}
+                  alt='a logo for Tapjoy'
                 />
                 <div className={styles.worksTextContainer}>
                   <span className={styles.worksTextTitle}>Tapjoy</span>
@@ -106,6 +108,7 @@ export default function App({
                 <img
                   src={`${process.env.REACT_APP_PUBLIC_URL}/farfetch.PNG`}
                   className={styles.companyImage}
+                  alt='a logo for Farfetch'
                 />
                 <div className={styles.worksTextContainer}>
                   <span className={styles.worksTextTitle}>Farfetch</span>
@@ -117,6 +120,7 @@ export default function App({
                 <img
                   src={`${process.env.REACT_APP_PUBLIC_URL}/playdog.PNG`}
                   className={styles.companyImage}
+                  alt='a logo for Playdog Soft'
                 />
                 <div className={styles.worksTextContainer}>
                   <span className={styles.worksTextTitle}>Playdog Soft</span>

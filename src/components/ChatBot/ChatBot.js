@@ -19,7 +19,7 @@ export default function ChatBot({
 
   useEffect(() => {
     scrollToBottom();
-  }, [messages]);
+  }, [messages, scrollToBottom]);
 
   return (
     <div id={styles.rootContainer}>
