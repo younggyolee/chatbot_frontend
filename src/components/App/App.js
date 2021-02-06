@@ -45,7 +45,7 @@ export default function App({
       <div className={styles.innerContainer}>
         <div className={styles.mainContainer}>
           <div className={styles.mainContentContainer}>
-            <section className='text'>
+            <section className={styles.text}>
               <span className={styles.title}>
                 YOUNGGYO LEE
               </span>
