@@ -60,6 +60,11 @@ hr {
 
 .lastParagraph {
   cursor: pointer;
+  font-style: italic;
+}
+
+.footerParagraph {
+  font-style: italic;
 }
 
 .mainContentContainer {
@@ -119,4 +124,8 @@ h1 {
 
 .companyImage {
   height: 5vh;
+}
+
+.tapjoyImage {
+  height: 9vh;
 }

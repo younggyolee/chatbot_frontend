@@ -37,6 +37,9 @@ export default function App({
     });
   }, [showChatBot]);
 
+  const dayNum = new Date().getDate();
+  const month = (new Date()).toLocaleDateString('default', { month: 'long' }).substring(0, 3);
+
   return (
     <div className={styles.rootContainer}>
       <div className={styles.innerContainer}>
@@ -50,13 +53,16 @@ export default function App({
               <h2>Software Engineering</h2>
               <hr/>
               <p>
-                &nbsp;SEOUL, May. {new Date().getDate()} - I am a freelancer software engineer, creating web and mobile services.
+                &nbsp;SEOUL, {dayNum} {month} - I am a software engineer, creating web and mobile services.
               </p>
               <p>
                 &nbsp;I have always been a computer geek from my early childhood, and finally settled into software engineering after experiencing various roles in the IT industry.
               </p>
               <p>
-                &nbsp;Currently I am doing several freelancing projects on web & mobile development. I am also engaged in data engineering & automation projects in the digital marketing area.
+                &nbsp;I worked on several projects on web development and data engineering & automation projects in the digital marketing area.
+              </p>
+              <p>
+                &nbsp;Currently I am working as a software engineer at Tapjoy, a mobile advertising platform headquartered in Silicon Valley with offices across the world.
               </p>
               <p
                 className={styles.lastParagraph}
@@ -85,8 +91,19 @@ export default function App({
                 <h1>EXPERIENCES</h1>
                 <hr/>  
               </div>
+              <div className={styles.tapjoyContainer}>
+                <img
+                  src={`${process.env.REACT_APP_PUBLIC_URL}/tapjoy.PNG`}
+                  className={styles.tapjoyImage}
+                />
+                <div className={styles.worksTextContainer}>
+                  <span className={styles.worksTextTitle}>Tapjoy</span>
+                  <br/>
+                  <span className={styles.worksText}>Software Engineer - Ad Dashboard Team</span>
+                </div>
+              </div>
               <div className={styles.farfetchContainer}>
-                <img 
+                <img
                   src={`${process.env.REACT_APP_PUBLIC_URL}/farfetch.PNG`}
                   className={styles.companyImage}
                 />
