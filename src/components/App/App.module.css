@@ -84,15 +84,19 @@ hr {
   height: 40vh;
 }
 
+.experienceTitleContainer h1 {
+  margin: 0;
+}
+
 .experienceContainer {
   height: 102vh;
   text-align: center;
   display:flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   background-color: white;
   color: color;
-  padding-bottom: 15%;
+  padding: 5%;
   box-sizing: border-box;
 }
 
@@ -115,8 +119,8 @@ h1 {
   color: grey;
 }
 
-.farfetchContainer {
-
+.companyContainer {
+  /* margin-bottom: 10px; */
 }
 
 .companyImage {
@@ -124,5 +128,5 @@ h1 {
 }
 
 .tapjoyImage {
-  height: 9vh;
+  height: 8vh;
 }

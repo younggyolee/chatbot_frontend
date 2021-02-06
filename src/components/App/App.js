@@ -88,11 +88,11 @@ export default function App({
               </a>
             </div>
             <div className={styles.experienceContainer}>
-              <div>
+              <div className={styles.experienceTitleContainer}>
                 <h1>EXPERIENCES</h1>
                 <hr/>  
               </div>
-              <div className={styles.tapjoyContainer}>
+              <div className={styles.companyContainer}>
                 <img
                   src={`${process.env.REACT_APP_PUBLIC_URL}/tapjoy.PNG`}
                   className={styles.tapjoyImage}
@@ -104,7 +104,7 @@ export default function App({
                   <span className={styles.worksText}>Software Engineer - Ad Dashboard Team</span>
                 </div>
               </div>
-              <div className={styles.farfetchContainer}>
+              <div className={styles.companyContainer}>
                 <img
                   src={`${process.env.REACT_APP_PUBLIC_URL}/farfetch.PNG`}
                   className={styles.companyImage}
@@ -116,7 +116,7 @@ export default function App({
                   <span className={styles.worksText}>Junior Performance Marketing Exec. - Paid Search Marketing Team</span>
                 </div>
               </div>
-              <div className={styles.playdogsoftContainer}>
+              <div className={styles.companyContainer}>
                 <img
                   src={`${process.env.REACT_APP_PUBLIC_URL}/playdog.PNG`}
                   className={styles.companyImage}
